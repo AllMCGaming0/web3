@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💕 Happy Girlfriend Day, Karu!</title>
+  <meta name="description" content="A special page made with love for Rajeshwarii (Karu) on National Girlfriend Day">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="hearts-container" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       LOGIN MODAL
+       ═══════════════════════════════════════════ -->
+  <div id="login-modal" class="login-modal">
+    <div class="login-card">
+      <div class="login-header">
+        <span class="login-heart">💕</span>
+        <h2 class="login-title">Welcome!</h2>
+        <p class="login-subtitle">Who's visiting today?</p>
+      </div>
+      <div class="login-profiles" id="login-profiles">
+        <button class="profile-btn interactive" data-role="admin" id="profile-admin">
+          <span class="profile-avatar">🤴</span>
+          <span class="profile-name" id="profile-admin-name">Rajkumar</span>
+        </button>
+        <button class="profile-btn interactive" data-role="viewer" id="profile-viewer">
+          <span class="profile-avatar">👸</span>
+          <span class="profile-name" id="profile-viewer-name">Karu</span>
+        </button>
+      </div>
+      <div class="login-form hidden" id="login-form">
+        <p class="login-form-label" id="login-form-label">Enter your password:</p>
+        <div class="login-input-group">
+          <input type="password" id="login-password" class="login-input" placeholder="Password..." autocomplete="off">
+          <button id="login-submit" class="login-submit interactive">💕</button>
+        </div>
+        <p class="login-error hidden" id="login-error">Wrong password! Try again 💔</p>
+        <button class="login-back" id="login-back">← Choose again</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       WELCOME PAGE
+       ═══════════════════════════════════════════ -->
+  <section id="welcome-page" aria-label="Welcome">
+    <div class="welcome-content">
+      <p class="welcome-date">✨ August 1st — National Girlfriend Day ✨</p>
+      <h1 class="welcome-title">Happy Girlfriend Day,</h1>
+      <h2 class="welcome-name" id="welcome-name">Karu 💕</h2>
+      <p class="welcome-sub">I made something special just for you...</p>
+      <button id="enter-btn" class="btn-glow interactive" aria-label="Enter the site">
+        Open Your Gift 🎁
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN SITE (hidden until Enter)
+       ═══════════════════════════════════════════ -->
+  <div id="main-site" class="hidden">
+
+    <!-- Sticky Navigation -->
+    <nav id="navbar" aria-label="Main navigation">
+      <div class="nav-brand" id="nav-brand">💕 For Karu</div>
+      <button id="nav-toggle" class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <button id="logout-btn" class="logout-btn interactive" title="Logout">🚪 Logout</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="#reasons" class="nav-link active interactive" data-page="reasons"><span class="nav-icon">💖</span><span class="nav-label">Why I Love You</span><span class="nav-label-short">Love</span></a></li>
+        <li><a href="#timeline" class="nav-link interactive" data-page="timeline"><span class="nav-icon">📅</span><span class="nav-label">Our Story</span><span class="nav-label-short">Story</span></a></li>
+        <li><a href="#gallery" class="nav-link interactive" data-page="gallery"><span class="nav-icon">📸</span><span class="nav-label">Memories</span><span class="nav-label-short">Photos</span></a></li>
+        <li><a href="#quiz" class="nav-link interactive" data-page="quiz"><span class="nav-icon">🎮</span><span class="nav-label">Fun</span><span class="nav-label-short">Fun</span></a></li>
+        <li><a href="#letter" class="nav-link interactive" data-page="letter"><span class="nav-icon">💌</span><span class="nav-label">Letter</span><span class="nav-label-short">Letter</span></a></li>
+      </ul>
+    </nav>
+    <div id="nav-overlay" class="nav-overlay"></div>
+
+    <!-- Page: Why I Love You -->
+    <section id="page-reasons" class="page active" aria-label="Why I Love You">
+      <div class="container">
+        <h2 class="section-title">Why I Love You 💖</h2>
+        <p class="section-subtitle">Click each card to reveal a reason...</p>
+        <div class="flip-cards-grid" id="reasons-grid"></div>
+      </div>
+    </section>
+
+    <!-- Page: Our Timeline -->
+    <section id="page-timeline" class="page" aria-label="Our Story Timeline">
+      <div class="container">
+        <h2 class="section-title">Our Love Story 📅</h2>
+        <p class="section-subtitle">Every moment with you is a treasure</p>
+        <div class="timeline" id="timeline-container">
+          <div class="timeline-progress" id="timeline-progress"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page: Memory Gallery -->
+    <section id="page-gallery" class="page" aria-label="Memory Gallery">
+      <div class="container">
+        <h2 class="section-title">Our Memories 📸</h2>
+        <p class="section-subtitle">Every picture tells our story</p>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- Page: Love Quiz & Game -->
+    <section id="page-quiz" class="page" aria-label="Love Quiz and Game">
+      <div class="container">
+        <h2 class="section-title">Love Games 🎮</h2>
+        <p class="section-subtitle">Let's have some fun together!</p>
+        <div class="quiz-tabs">
+          <button class="quiz-tab active interactive" data-mode="quiz">📝 Love Quiz</button>
+          <button class="quiz-tab interactive" data-mode="clicker">💕 Love Meter</button>
+        </div>
+        <div id="quiz-area"></div>
+        <div id="clicker-area" class="hidden"></div>
+      </div>
+    </section>
+
+    <!-- Page: Love Letter -->
+    <section id="page-letter" class="page" aria-label="Love Letter">
+      <div class="container letter-container">
+        <h2 class="section-title">A Letter For You 💌</h2>
+        <p class="section-subtitle" id="letter-hint">Click the seal to open...</p>
+        <div class="envelope-wrapper interactive" id="envelope-wrapper">
+          <div class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body">
+              <div class="wax-seal" id="wax-seal">💕</div>
+            </div>
+          </div>
+          <div class="letter" id="letter">
+            <div class="letter-content" id="letter-content"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SURPRISE PAGE (hidden, accessed via floating button)
+       ═══════════════════════════════════════════ -->
+  <section id="page-surprise" class="hidden" aria-label="Surprise">
+    <canvas id="confetti-canvas"></canvas>
+    <div class="surprise-content">
+      <h2 class="surprise-title" id="surprise-title"></h2>
+      <p class="surprise-text" id="surprise-text"></p>
+      <div id="playlist-embed"></div>
+      <button class="btn-glow" id="replay-confetti" style="margin-bottom:12px">🎉 More Confetti!</button>
+      <br>
+      <button class="surprise-back" id="surprise-back">← Back to site</button>
+    </div>
+  </section>
+
+  <!-- Floating Surprise Trigger -->
+  <button id="surprise-btn" class="surprise-trigger hidden interactive">
+    Don't click unless you love me too 👀
+  </button>
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-label="Photo lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">✕</button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous photo">❮</button>
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next photo">❯</button>
+    <img id="lightbox-img" src="" alt="Gallery photo">
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <!-- Scripts (order matters: modules first, then app) -->
+  <script src="js/hearts.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
